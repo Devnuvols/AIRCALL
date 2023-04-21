@@ -1,0 +1,3843 @@
+{
+    "name": "LLAMADA CONTACTO Aircall",
+    "flow": [
+        {
+            "id": 9,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 567878,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 150
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "webhook 6"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 11,
+            "module": "airtable:ActionGetRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 976896
+            },
+            "mapper": {
+                "id": "{{9.value}}",
+                "base": "appuV5kGKzKdXlhoR",
+                "table": "tbl7HVrBNBY9cSXzj",
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 150
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "Advancing"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "contactos"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "Advancing-Airtable "
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "index",
+                        "type": "text",
+                        "label": "index"
+                    },
+                    {
+                        "name": "tipo contacto",
+                        "type": "text",
+                        "label": "tipo contacto"
+                    },
+                    {
+                        "name": "producto interesado",
+                        "type": "text",
+                        "label": "producto interesado"
+                    },
+                    {
+                        "name": "fuente original",
+                        "type": "text",
+                        "label": "fuente original"
+                    },
+                    {
+                        "name": "LOPD",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "LOPD"
+                    },
+                    {
+                        "name": "plantilla LOPD",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "plantilla LOPD"
+                    },
+                    {
+                        "name": "nombre plantilla LOPD",
+                        "type": "array",
+                        "label": "nombre plantilla LOPD"
+                    },
+                    {
+                        "name": "LOPD UUID",
+                        "type": "text",
+                        "label": "LOPD UUID"
+                    },
+                    {
+                        "name": "LOPD STATUS select",
+                        "type": "text",
+                        "label": "LOPD STATUS select"
+                    },
+                    {
+                        "name": "LOPD STATUS original",
+                        "type": "text",
+                        "label": "LOPD STATUS original"
+                    },
+                    {
+                        "name": "nombre",
+                        "type": "text",
+                        "label": "nombre"
+                    },
+                    {
+                        "name": "apellidos",
+                        "type": "text",
+                        "label": "apellidos"
+                    },
+                    {
+                        "name": "nacionalidad",
+                        "type": "text",
+                        "label": "nacionalidad"
+                    },
+                    {
+                        "name": "tipo doc",
+                        "type": "text",
+                        "label": "tipo doc"
+                    },
+                    {
+                        "name": "numero documento",
+                        "type": "text",
+                        "label": "numero documento"
+                    },
+                    {
+                        "name": "telefono",
+                        "type": "text",
+                        "label": "telefono"
+                    },
+                    {
+                        "name": "email",
+                        "type": "text",
+                        "label": "email"
+                    },
+                    {
+                        "name": "direccion",
+                        "type": "text",
+                        "label": "direccion"
+                    },
+                    {
+                        "name": "CP",
+                        "type": "text",
+                        "label": "CP"
+                    },
+                    {
+                        "name": "ciudad",
+                        "type": "text",
+                        "label": "ciudad"
+                    },
+                    {
+                        "name": "provincia",
+                        "type": "text",
+                        "label": "provincia"
+                    },
+                    {
+                        "name": "pais",
+                        "type": "text",
+                        "label": "pais"
+                    },
+                    {
+                        "name": "razon social",
+                        "type": "text",
+                        "label": "razon social"
+                    },
+                    {
+                        "name": "nombre entidad",
+                        "type": "text",
+                        "label": "nombre entidad"
+                    },
+                    {
+                        "name": "cif entidad",
+                        "type": "text",
+                        "label": "cif entidad"
+                    },
+                    {
+                        "name": "telefono entidad",
+                        "type": "text",
+                        "label": "telefono entidad"
+                    },
+                    {
+                        "name": "email entidad",
+                        "type": "text",
+                        "label": "email entidad"
+                    },
+                    {
+                        "name": "direccion entidad",
+                        "type": "text",
+                        "label": "direccion entidad"
+                    },
+                    {
+                        "name": "provincia entidad",
+                        "type": "text",
+                        "label": "provincia entidad"
+                    },
+                    {
+                        "name": "ciudad entidad",
+                        "type": "text",
+                        "label": "ciudad entidad"
+                    },
+                    {
+                        "name": "CP entidad",
+                        "type": "text",
+                        "label": "CP entidad"
+                    },
+                    {
+                        "name": "pais entidad",
+                        "type": "text",
+                        "label": "pais entidad"
+                    },
+                    {
+                        "name": "notas",
+                        "type": "text",
+                        "label": "notas",
+                        "multiline": true
+                    },
+                    {
+                        "name": "numero de cuenta",
+                        "type": "text",
+                        "label": "numero de cuenta"
+                    },
+                    {
+                        "name": "fecha cobro",
+                        "time": false,
+                        "type": "date",
+                        "label": "fecha cobro"
+                    },
+                    {
+                        "name": "aval",
+                        "type": "boolean",
+                        "label": "aval"
+                    },
+                    {
+                        "name": "contrato",
+                        "type": "url",
+                        "label": "contrato"
+                    },
+                    {
+                        "name": "foto documento",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "foto documento"
+                    },
+                    {
+                        "name": "recibo bancario",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "recibo bancario"
+                    },
+                    {
+                        "name": "otros",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "otros"
+                    },
+                    {
+                        "name": "documento ingresos",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "documento ingresos"
+                    },
+                    {
+                        "name": "id_avalista link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_avalista link"
+                    },
+                    {
+                        "name": "nombre avalista",
+                        "type": "array",
+                        "label": "nombre avalista"
+                    },
+                    {
+                        "name": "deal_link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "deal_link"
+                    },
+                    {
+                        "name": "id_empleado link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_empleado link"
+                    },
+                    {
+                        "name": "id_empleado link_log",
+                        "type": "text",
+                        "label": "id_empleado link_log"
+                    },
+                    {
+                        "name": "nombre empleado",
+                        "type": "array",
+                        "label": "nombre empleado"
+                    },
+                    {
+                        "name": "situacion laboral",
+                        "type": "text",
+                        "label": "situacion laboral"
+                    },
+                    {
+                        "name": "ingresos",
+                        "type": "number",
+                        "label": "ingresos"
+                    },
+                    {
+                        "name": "antiguedad laboral",
+                        "time": false,
+                        "type": "date",
+                        "label": "antiguedad laboral"
+                    },
+                    {
+                        "name": "canal envio",
+                        "type": "text",
+                        "label": "canal envio"
+                    },
+                    {
+                        "name": "LOPD link PANDA",
+                        "type": "url",
+                        "label": "LOPD link PANDA"
+                    },
+                    {
+                        "name": "warning",
+                        "type": "text",
+                        "label": "warning"
+                    },
+                    {
+                        "name": "inmueblelink",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "inmueblelink"
+                    },
+                    {
+                        "name": "count inmueble",
+                        "type": "array",
+                        "label": "count inmueble"
+                    },
+                    {
+                        "name": "referencia catastral inmueble",
+                        "type": "array",
+                        "label": "referencia catastral inmueble"
+                    },
+                    {
+                        "name": "producto",
+                        "type": "array",
+                        "label": "producto"
+                    },
+                    {
+                        "name": "comision",
+                        "type": "number",
+                        "label": "comision"
+                    },
+                    {
+                        "name": "agencia",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "agencia"
+                    },
+                    {
+                        "name": "nombre agencia",
+                        "type": "array",
+                        "label": "nombre agencia"
+                    },
+                    {
+                        "name": "LOPD url",
+                        "type": "url",
+                        "label": "LOPD url"
+                    },
+                    {
+                        "name": "contrato STATUS select",
+                        "type": "array",
+                        "label": "contrato STATUS select"
+                    },
+                    {
+                        "name": "ID_deal_record (from deal_link)",
+                        "type": "array",
+                        "label": "ID_deal_record (from deal_link)"
+                    },
+                    {
+                        "name": "id propietario link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id propietario link"
+                    },
+                    {
+                        "name": "nombre  propietario",
+                        "type": "array",
+                        "label": "nombre  propietario"
+                    },
+                    {
+                        "name": "nombre  inquilino",
+                        "type": "array",
+                        "label": "nombre  inquilino"
+                    },
+                    {
+                        "name": "nombre  agencia",
+                        "type": "array",
+                        "label": "nombre  agencia"
+                    },
+                    {
+                        "name": "inmueble",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "inmueble"
+                    },
+                    {
+                        "name": "inmueble 2",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "inmueble 2"
+                    },
+                    {
+                        "name": "deal id",
+                        "type": "array",
+                        "label": "deal id"
+                    },
+                    {
+                        "name": "id inmueble",
+                        "type": "array",
+                        "label": "id inmueble"
+                    },
+                    {
+                        "name": "llamar AIRCALL",
+                        "type": "text",
+                        "label": "llamar AIRCALL"
+                    },
+                    {
+                        "name": "contrato agencia STATUS select",
+                        "type": "text",
+                        "label": "contrato agencia STATUS select"
+                    },
+                    {
+                        "name": "contrato agencia STATUS original",
+                        "type": "text",
+                        "label": "contrato agencia STATUS original"
+                    },
+                    {
+                        "name": "numero deals realizados",
+                        "type": "number",
+                        "label": "numero deals realizados"
+                    },
+                    {
+                        "name": "numero deals",
+                        "type": "number",
+                        "label": "numero deals"
+                    },
+                    {
+                        "name": "RecordProp_ID",
+                        "type": "text",
+                        "label": "RecordProp_ID"
+                    },
+                    {
+                        "name": "fecha creado",
+                        "type": "date",
+                        "label": "fecha creado"
+                    },
+                    {
+                        "name": "fecha modificado",
+                        "type": "date",
+                        "label": "fecha modificado"
+                    },
+                    {
+                        "name": "a pagar",
+                        "type": "number",
+                        "label": "a pagar"
+                    },
+                    {
+                        "name": "fecha pago",
+                        "time": false,
+                        "type": "date",
+                        "label": "fecha pago"
+                    },
+                    {
+                        "name": "UUID plantilla LOPD",
+                        "type": "array",
+                        "label": "UUID plantilla LOPD"
+                    },
+                    {
+                        "name": "llamar contacto",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "llamar contacto"
+                    },
+                    {
+                        "name": "id user Aircall",
+                        "type": "array",
+                        "label": "id user Aircall"
+                    },
+                    {
+                        "name": "linea origen llamada",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "linea origen llamada"
+                    },
+                    {
+                        "name": "telefono (origen llamada)",
+                        "type": "array",
+                        "label": "telefono (origen llamada)"
+                    },
+                    {
+                        "name": "ID telefono (origen llamada)",
+                        "type": "array",
+                        "label": "ID telefono (origen llamada)"
+                    },
+                    {
+                        "name": "contrato agencia",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "contrato agencia"
+                    },
+                    {
+                        "name": "enviar agencia",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "enviar agencia"
+                    },
+                    {
+                        "name": "tipo agencia",
+                        "type": "text",
+                        "label": "tipo agencia"
+                    },
+                    {
+                        "name": "informa",
+                        "type": "text",
+                        "label": "informa"
+                    },
+                    {
+                        "name": "localizacion",
+                        "type": "text",
+                        "label": "localizacion"
+                    },
+                    {
+                        "name": "entidad bancaria",
+                        "type": "text",
+                        "label": "entidad bancaria"
+                    },
+                    {
+                        "name": "plantilla agencia",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "plantilla agencia"
+                    },
+                    {
+                        "name": "nombre plantilla agencia",
+                        "type": "array",
+                        "label": "nombre plantilla agencia"
+                    },
+                    {
+                        "name": "id_inquilino link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_inquilino link"
+                    },
+                    {
+                        "name": "id_agencialink",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_agencialink"
+                    },
+                    {
+                        "name": "empleado",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "empleado"
+                    },
+                    {
+                        "name": "empleado 2",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "empleado 2"
+                    },
+                    {
+                        "name": "empleado 3",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "empleado 3"
+                    },
+                    {
+                        "name": "empleado 4",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "empleado 4"
+                    },
+                    {
+                        "name": "deal",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "deal"
+                    },
+                    {
+                        "name": "avalista_deal",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "avalista_deal"
+                    },
+                    {
+                        "name": "propietario_deal",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "propietario_deal"
+                    },
+                    {
+                        "name": "inquilino_deal",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "inquilino_deal"
+                    },
+                    {
+                        "name": "deleted",
+                        "type": "boolean",
+                        "label": "deleted"
+                    },
+                    {
+                        "name": "UUID plantilla agencia",
+                        "type": "array",
+                        "label": "UUID plantilla agencia"
+                    },
+                    {
+                        "name": "contrato agencia link PANDA",
+                        "type": "url",
+                        "label": "contrato agencia link PANDA"
+                    },
+                    {
+                        "name": "dia de cobro",
+                        "type": "text",
+                        "label": "dia de cobro"
+                    },
+                    {
+                        "name": "status B2B",
+                        "type": "text",
+                        "label": "status B2B"
+                    },
+                    {
+                        "name": "API",
+                        "type": "text",
+                        "label": "API"
+                    },
+                    {
+                        "name": "comision agencia contrato - mes a mes",
+                        "type": "number",
+                        "label": "comision agencia contrato - mes a mes"
+                    },
+                    {
+                        "name": "fecha firma contrato colaboracion",
+                        "time": false,
+                        "type": "date",
+                        "label": "fecha firma contrato colaboracion"
+                    },
+                    {
+                        "name": "rec_id_temp",
+                        "type": "text",
+                        "label": "rec_id_temp"
+                    },
+                    {
+                        "name": "inmuebles",
+                        "type": "number",
+                        "label": "inmuebles"
+                    },
+                    {
+                        "name": "id_agente_link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_agente_link"
+                    },
+                    {
+                        "name": "nombre agente (look)",
+                        "type": "array",
+                        "label": "nombre agente (look)"
+                    },
+                    {
+                        "name": "apellido agente",
+                        "type": "array",
+                        "label": "apellido agente"
+                    },
+                    {
+                        "name": "envio LOPD",
+                        "type": "text",
+                        "label": "envio LOPD"
+                    },
+                    {
+                        "name": "crear contrato",
+                        "type": "text",
+                        "label": "crear contrato"
+                    },
+                    {
+                        "name": "enviar contrato",
+                        "type": "text",
+                        "label": "enviar contrato"
+                    },
+                    {
+                        "name": "numero de alquileres mensuales",
+                        "type": "number",
+                        "label": "numero de alquileres mensuales"
+                    },
+                    {
+                        "name": "numero de operaciones mensual con proteccion de impagos",
+                        "type": "number",
+                        "label": "numero de operaciones mensual con proteccion de impagos"
+                    },
+                    {
+                        "name": "PVP Mes a Mes",
+                        "type": "number",
+                        "label": "PVP Mes a Mes"
+                    },
+                    {
+                        "name": "cargo",
+                        "type": "text",
+                        "label": "cargo"
+                    },
+                    {
+                        "name": "cargo agente",
+                        "type": "array",
+                        "label": "cargo agente"
+                    },
+                    {
+                        "name": "contrato agencia UUID",
+                        "type": "text",
+                        "label": "contrato agencia UUID"
+                    },
+                    {
+                        "name": "CReado por",
+                        "type": "text",
+                        "label": "CReado por"
+                    },
+                    {
+                        "name": "agencia nombre txt",
+                        "type": "text",
+                        "label": "agencia nombre txt"
+                    },
+                    {
+                        "name": "comision agencia contrato - 12 meses",
+                        "type": "number",
+                        "label": "comision agencia contrato - 12 meses"
+                    },
+                    {
+                        "name": "record id",
+                        "type": "text",
+                        "label": "record id"
+                    },
+                    {
+                        "name": "deal copy",
+                        "type": "text",
+                        "label": "deal copy"
+                    },
+                    {
+                        "name": "agente_deal",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "agente_deal"
+                    },
+                    {
+                        "name": "check_auto",
+                        "type": "boolean",
+                        "label": "check_auto"
+                    },
+                    {
+                        "name": "nombre agencia (from agencia)",
+                        "type": "array",
+                        "label": "nombre agencia (from agencia)"
+                    },
+                    {
+                        "name": "nombre agentes de agencia",
+                        "type": "array",
+                        "label": "nombre agentes de agencia"
+                    },
+                    {
+                        "name": "Inq_Check_Avalista",
+                        "type": "boolean",
+                        "label": "Inq_Check_Avalista"
+                    },
+                    {
+                        "name": "Inq_Avalista1",
+                        "type": "text",
+                        "label": "Inq_Avalista1"
+                    },
+                    {
+                        "name": "Inq_Avalista2",
+                        "type": "text",
+                        "label": "Inq_Avalista2"
+                    },
+                    {
+                        "name": "Avalista_1",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Avalista_1"
+                    },
+                    {
+                        "name": "Avalista_2",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Avalista_2"
+                    },
+                    {
+                        "name": "nombre empleado vinculado (deal_link)",
+                        "type": "array",
+                        "label": "nombre empleado vinculado (deal_link)"
+                    },
+                    {
+                        "name": "lead vinculado",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "lead vinculado"
+                    },
+                    {
+                        "name": "fuente original (from lead vinculado)",
+                        "type": "array",
+                        "label": "fuente original (from lead vinculado)"
+                    },
+                    {
+                        "name": "form_prefilled_agente",
+                        "type": "text",
+                        "label": "form_prefilled_agente"
+                    },
+                    {
+                        "name": "id_contacto",
+                        "type": "text",
+                        "label": "id_contacto"
+                    },
+                    {
+                        "name": "inquilino avalado",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "inquilino avalado"
+                    },
+                    {
+                        "name": "PVP 12 meses",
+                        "type": "number",
+                        "label": "PVP 12 meses"
+                    },
+                    {
+                        "name": "index Rollup (from id_agencialink)",
+                        "type": "array",
+                        "label": "index Rollup (from id_agencialink)"
+                    },
+                    {
+                        "name": "record id (from id_agencialink)",
+                        "type": "array",
+                        "label": "record id (from id_agencialink)"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "module": "util:SetVariable2",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "name": "user_aircall",
+                "scope": "roundtrip",
+                "value": "{{11.`id user Aircall`[]}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 150,
+                    "name": "user_aircall"
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "name",
+                        "type": "text",
+                        "label": "Variable name",
+                        "required": true
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "label": "Variable value"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "user_aircall",
+                        "type": "any",
+                        "label": "user_aircall"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "util:SetVariable2",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "name": "mobil_aircall",
+                "scope": "roundtrip",
+                "value": "+{{11.telefono}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 150,
+                    "name": "mobil_aircall"
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "name",
+                        "type": "text",
+                        "label": "Variable name",
+                        "required": true
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "label": "Variable value"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "mobil_aircall",
+                        "type": "any",
+                        "label": "mobil_aircall"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "util:SetVariable2",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "name": "number_id",
+                "scope": "roundtrip",
+                "value": "{{11.`ID telefono (origen llamada)`[]}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 150,
+                    "name": "number_id"
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "name",
+                        "type": "text",
+                        "label": "Variable name",
+                        "required": true
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "label": "Variable value"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "number_id",
+                        "type": "any",
+                        "label": "number_id"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "aircall:makeApiCall",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 976980
+            },
+            "mapper": {
+                "url": "v1/users/{{1.user_aircall}}/calls",
+                "body": "{\n  \"number_id\": {{6.number_id}},\n  \"to\": \"{{5.mobil_aircall}}\"\n}",
+                "method": "POST",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 150,
+                    "name": "MARCA NUMERO"
+                },
+                "restore": {
+                    "expect": {
+                        "qs": {
+                            "mode": "chose"
+                        },
+                        "method": {
+                            "mode": "chose",
+                            "label": "POST"
+                        },
+                        "headers": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "aircall"
+                            },
+                            "label": "Advancing-Aircall (Advancing Right SL)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:aircall",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "text",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    }
+                ]
+            },
+            "onerror": [
+                {
+                    "id": 17,
+                    "module": "airtable:ActionUpdateRecords",
+                    "version": 3,
+                    "parameters": {
+                        "__IMTCONN__": 976896
+                    },
+                    "mapper": {
+                        "id": "{{11.id}}",
+                        "base": "appuV5kGKzKdXlhoR",
+                        "table": "tbl7HVrBNBY9cSXzj",
+                        "record": {
+                            "fldu88RU91yNooDoV": "💁🏻‍♂️ABRE LA APLICACION AIRCALL➙📞"
+                        },
+                        "typecast": false,
+                        "useColumnId": false
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 1800,
+                            "y": 300
+                        },
+                        "restore": {
+                            "expect": {
+                                "base": {
+                                    "label": "Advancing"
+                                },
+                                "table": {
+                                    "label": "contactos"
+                                },
+                                "record": {
+                                    "nested": {
+                                        "fld4MKeVOsBJEMfYy": {
+                                            "mode": "chose"
+                                        },
+                                        "fld5NarXMuJuyBf3T": {
+                                            "mode": "chose"
+                                        },
+                                        "fld6HXlAcwQSzrlq5": {
+                                            "mode": "edit"
+                                        },
+                                        "fld85x420TZThnaw1": {
+                                            "mode": "edit"
+                                        },
+                                        "fldC6feJwApdX6XNU": {
+                                            "mode": "edit"
+                                        },
+                                        "fldDfGSRXsZggcAlq": {
+                                            "mode": "chose"
+                                        },
+                                        "fldGHLC1iDpuYzXx3": {
+                                            "mode": "chose"
+                                        },
+                                        "fldJOgQEJ6ADJeGtE": {
+                                            "mode": "chose"
+                                        },
+                                        "fldOKSBh7qihxKM73": {
+                                            "mode": "edit"
+                                        },
+                                        "fldRfgLZlkACYlqK5": {
+                                            "mode": "chose"
+                                        },
+                                        "fldTMbYr06YaFbKG8": {
+                                            "mode": "edit"
+                                        },
+                                        "fldW7hKqHmqOyBJWD": {
+                                            "mode": "edit"
+                                        },
+                                        "fldXmVZARXsoZ6uxo": {
+                                            "mode": "chose"
+                                        },
+                                        "fldZ3fPqEUgcHjmtu": {
+                                            "mode": "edit"
+                                        },
+                                        "fldcmzmOvCsnc4z4z": {
+                                            "mode": "chose"
+                                        },
+                                        "fldfD9hWiDKkwKcf7": {
+                                            "mode": "chose"
+                                        },
+                                        "fldfpHl6N3txI9iD6": {
+                                            "mode": "chose"
+                                        },
+                                        "fldhEub0h3vMBrqZH": {
+                                            "mode": "edit"
+                                        },
+                                        "fldqAHREJXix3uTzu": {
+                                            "mode": "chose"
+                                        },
+                                        "fldrQJWMaJexlgRJh": {
+                                            "mode": "chose"
+                                        },
+                                        "fldsgrFQKfzwz8AT4": {
+                                            "mode": "edit"
+                                        }
+                                    }
+                                },
+                                "typecast": {
+                                    "mode": "chose"
+                                },
+                                "useColumnId": {
+                                    "mode": "chose"
+                                }
+                            },
+                            "parameters": {
+                                "__IMTCONN__": {
+                                    "data": {
+                                        "scoped": "true",
+                                        "connection": "airtable2"
+                                    },
+                                    "label": "Advancing-Airtable "
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "__IMTCONN__",
+                                "type": "account:airtable2",
+                                "label": "Connection",
+                                "required": true
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "base",
+                                "type": "select",
+                                "label": "Base",
+                                "required": true
+                            },
+                            {
+                                "name": "typecast",
+                                "type": "boolean",
+                                "label": "Smart links",
+                                "required": true
+                            },
+                            {
+                                "name": "useColumnId",
+                                "type": "boolean",
+                                "label": "Use Column ID",
+                                "required": true
+                            },
+                            {
+                                "name": "table",
+                                "type": "select",
+                                "label": "Table",
+                                "required": true
+                            },
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "Record ID",
+                                "required": true
+                            },
+                            {
+                                "name": "record",
+                                "spec": [
+                                    {
+                                        "name": "fld9f67VJGfsNksxo",
+                                        "type": "text",
+                                        "label": "id_contacto"
+                                    },
+                                    {
+                                        "name": "fld4MKeVOsBJEMfYy",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "PLANTILLA LOPD"
+                                    },
+                                    {
+                                        "name": "fld9pjRDwkZhflVna",
+                                        "type": "text",
+                                        "label": "nombre"
+                                    },
+                                    {
+                                        "name": "fldTciwBcSDx2F5Rl",
+                                        "type": "text",
+                                        "label": "apellidos"
+                                    },
+                                    {
+                                        "name": "fldeikqyfWQLSYWf5",
+                                        "type": "text",
+                                        "label": "nacionalidad"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fldOKSBh7qihxKM73",
+                                        "type": "select",
+                                        "label": "tipo doc"
+                                    },
+                                    {
+                                        "name": "fldDicT1bmEt0RWha",
+                                        "type": "text",
+                                        "label": "num doc"
+                                    },
+                                    {
+                                        "name": "flduLwoOzrPjoVDXC",
+                                        "type": "text",
+                                        "label": "telefono"
+                                    },
+                                    {
+                                        "name": "fld58wKOsne6eCGpI",
+                                        "type": "text",
+                                        "label": "email"
+                                    },
+                                    {
+                                        "name": "fldsqBrAlIS6dqPoK",
+                                        "type": "text",
+                                        "label": "direccion"
+                                    },
+                                    {
+                                        "name": "fldBbsaI4DTtPOoz3",
+                                        "type": "text",
+                                        "label": "CP"
+                                    },
+                                    {
+                                        "name": "fldIsmkcqJvdvaPqk",
+                                        "type": "text",
+                                        "label": "ciudad"
+                                    },
+                                    {
+                                        "name": "fldEwXZiQ0lRhMUXF",
+                                        "type": "text",
+                                        "label": "provincia"
+                                    },
+                                    {
+                                        "name": "fldW9MFbk5wuDITV2",
+                                        "type": "text",
+                                        "label": "pais"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fld85x420TZThnaw1",
+                                        "type": "select",
+                                        "label": "razon social"
+                                    },
+                                    {
+                                        "name": "fldEnbk0UuEDI2LWS",
+                                        "type": "text",
+                                        "label": "nombre entidad"
+                                    },
+                                    {
+                                        "name": "fldflVFJCuXriwZG4",
+                                        "type": "text",
+                                        "label": "cif entidad"
+                                    },
+                                    {
+                                        "name": "fldBcaWABiYUSjKZf",
+                                        "type": "text",
+                                        "label": "telefono entidad"
+                                    },
+                                    {
+                                        "name": "fld3EVLZtNlKZFPUb",
+                                        "type": "text",
+                                        "label": "email entidad"
+                                    },
+                                    {
+                                        "name": "fldL3WgxWXmFwHj7R",
+                                        "type": "text",
+                                        "label": "direccion entidad"
+                                    },
+                                    {
+                                        "name": "fldo6nxCDVaHrmqdS",
+                                        "type": "text",
+                                        "label": "provincia entidad"
+                                    },
+                                    {
+                                        "name": "fldi85fZqo5Bmj9xk",
+                                        "type": "text",
+                                        "label": "ciudad entidad"
+                                    },
+                                    {
+                                        "name": "fldmFWwTzYYe9UYDl",
+                                        "type": "text",
+                                        "label": "CP entidad"
+                                    },
+                                    {
+                                        "name": "fldgH8HMCRZm7TzHN",
+                                        "type": "text",
+                                        "label": "pais entidad"
+                                    },
+                                    {
+                                        "name": "fldTk9zKfiTlsM1t1",
+                                        "type": "text",
+                                        "label": "notas"
+                                    },
+                                    {
+                                        "name": "fldUY0qcYZGBQjuk1",
+                                        "type": "text",
+                                        "label": "num cuenta"
+                                    },
+                                    {
+                                        "name": "fld9hrTobT35jmGBS",
+                                        "time": false,
+                                        "type": "date",
+                                        "label": "fecha cobro"
+                                    },
+                                    {
+                                        "name": "fldGHLC1iDpuYzXx3",
+                                        "type": "boolean",
+                                        "label": "aval"
+                                    },
+                                    {
+                                        "name": "fldivMY3MA8Hnwq0Q",
+                                        "type": "url",
+                                        "label": "contrato"
+                                    },
+                                    {
+                                        "name": "fldKsUri9qPSMBXUg",
+                                        "type": "url",
+                                        "label": "foto doc"
+                                    },
+                                    {
+                                        "name": "fldmfrmdx7nZ7Z0kQ",
+                                        "type": "url",
+                                        "label": "recibo_banc"
+                                    },
+                                    {
+                                        "name": "fldfSn4IxndLHZ6UF",
+                                        "type": "url",
+                                        "label": "otros"
+                                    },
+                                    {
+                                        "name": "fldcmzmOvCsnc4z4z",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "id_avalista link"
+                                    },
+                                    {
+                                        "name": "fldfpHl6N3txI9iD6",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "deal_link"
+                                    },
+                                    {
+                                        "name": "fldJOgQEJ6ADJeGtE",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "id_empleado link"
+                                    },
+                                    {
+                                        "name": "fldrQJWMaJexlgRJh",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "id_empleado link_log"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fldsgrFQKfzwz8AT4",
+                                        "type": "select",
+                                        "label": "situacion laboral"
+                                    },
+                                    {
+                                        "name": "fldDPy51zFYCKDCzF",
+                                        "type": "number",
+                                        "label": "ingresos"
+                                    },
+                                    {
+                                        "name": "fldxGFtAEFXa7UH47",
+                                        "type": "text",
+                                        "label": "antiguedad laboral"
+                                    },
+                                    {
+                                        "name": "fldQpm0L4anqtYqqX",
+                                        "type": "url",
+                                        "label": "doc_ingreso"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fldC6feJwApdX6XNU",
+                                        "type": "select",
+                                        "label": "canal envio"
+                                    },
+                                    {
+                                        "name": "fldELHnSX1uQO0m7Z",
+                                        "type": "url",
+                                        "label": "LOPD link PANDA"
+                                    },
+                                    {
+                                        "name": "fldfD9hWiDKkwKcf7",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "id_inmueble link"
+                                    },
+                                    {
+                                        "name": "fldDfGSRXsZggcAlq",
+                                        "spec": {
+                                            "mode": "edit",
+                                            "name": "value",
+                                            "type": "select",
+                                            "label": "Value",
+                                            "dynamic": true,
+                                            "options": [
+                                                {
+                                                    "label": "propietario",
+                                                    "value": "propietario"
+                                                },
+                                                {
+                                                    "label": "inquilino",
+                                                    "value": "inquilino"
+                                                },
+                                                {
+                                                    "label": "avalista",
+                                                    "value": "avalista"
+                                                },
+                                                {
+                                                    "label": "agencia",
+                                                    "value": "agencia"
+                                                }
+                                            ],
+                                            "validate": false
+                                        },
+                                        "type": "array",
+                                        "label": "tipo contacto"
+                                    },
+                                    {
+                                        "name": "fldyTtmEdBCN9rpBW",
+                                        "type": "text",
+                                        "label": "LOPD UUID"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fldTMbYr06YaFbKG8",
+                                        "type": "select",
+                                        "label": "LOPD STATUS select"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fldW7hKqHmqOyBJWD",
+                                        "type": "select",
+                                        "label": "LOPD STATUS original"
+                                    },
+                                    {
+                                        "name": "fldV4owlOltXYM7IP",
+                                        "type": "number",
+                                        "label": "a pagar"
+                                    },
+                                    {
+                                        "name": "fldg84aExN4jdKEbn",
+                                        "time": false,
+                                        "type": "date",
+                                        "label": "fecha pago"
+                                    },
+                                    {
+                                        "name": "fldu88RU91yNooDoV",
+                                        "type": "text",
+                                        "label": "WARNING"
+                                    },
+                                    {
+                                        "name": "fldEApZbVyx7cn8YF",
+                                        "type": "number",
+                                        "label": "comision"
+                                    },
+                                    {
+                                        "name": "fldRfgLZlkACYlqK5",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "AGENCIA"
+                                    },
+                                    {
+                                        "name": "fldZJemCcmKkA7eg5",
+                                        "type": "url",
+                                        "label": "LOPD url"
+                                    },
+                                    {
+                                        "name": "fld5NarXMuJuyBf3T",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "linea origen llamada"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fldhEub0h3vMBrqZH",
+                                        "type": "select",
+                                        "label": "tipo agencia"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fldZ3fPqEUgcHjmtu",
+                                        "type": "select",
+                                        "label": "informa"
+                                    },
+                                    {
+                                        "mode": "edit",
+                                        "name": "fld6HXlAcwQSzrlq5",
+                                        "type": "select",
+                                        "label": "localizacion"
+                                    },
+                                    {
+                                        "name": "fldUBY6Os1eYkme20",
+                                        "type": "text",
+                                        "label": "entidad bancaria"
+                                    },
+                                    {
+                                        "name": "fldqAHREJXix3uTzu",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "id_propietario link"
+                                    },
+                                    {
+                                        "name": "fldXmVZARXsoZ6uxo",
+                                        "spec": {
+                                            "name": "value",
+                                            "label": "Record ID"
+                                        },
+                                        "type": "array",
+                                        "label": "PLANTILLA AGENCIA"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Record"
+                            }
+                        ],
+                        "interface": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "createdTime",
+                                "type": "date",
+                                "label": "Created Time"
+                            },
+                            {
+                                "name": "id_contacto",
+                                "type": "text",
+                                "label": "id_contacto"
+                            },
+                            {
+                                "name": "PLANTILLA LOPD",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "PLANTILLA LOPD"
+                            },
+                            {
+                                "name": "nombre",
+                                "type": "text",
+                                "label": "nombre"
+                            },
+                            {
+                                "name": "apellidos",
+                                "type": "text",
+                                "label": "apellidos"
+                            },
+                            {
+                                "name": "nacionalidad",
+                                "type": "text",
+                                "label": "nacionalidad"
+                            },
+                            {
+                                "name": "tipo doc",
+                                "type": "text",
+                                "label": "tipo doc"
+                            },
+                            {
+                                "name": "num doc",
+                                "type": "text",
+                                "label": "num doc"
+                            },
+                            {
+                                "name": "telefono",
+                                "type": "text",
+                                "label": "telefono"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text",
+                                "label": "email"
+                            },
+                            {
+                                "name": "direccion",
+                                "type": "text",
+                                "label": "direccion"
+                            },
+                            {
+                                "name": "CP",
+                                "type": "text",
+                                "label": "CP"
+                            },
+                            {
+                                "name": "ciudad",
+                                "type": "text",
+                                "label": "ciudad"
+                            },
+                            {
+                                "name": "provincia",
+                                "type": "text",
+                                "label": "provincia"
+                            },
+                            {
+                                "name": "pais",
+                                "type": "text",
+                                "label": "pais"
+                            },
+                            {
+                                "name": "razon social",
+                                "type": "text",
+                                "label": "razon social"
+                            },
+                            {
+                                "name": "nombre entidad",
+                                "type": "text",
+                                "label": "nombre entidad"
+                            },
+                            {
+                                "name": "cif entidad",
+                                "type": "text",
+                                "label": "cif entidad"
+                            },
+                            {
+                                "name": "telefono entidad",
+                                "type": "text",
+                                "label": "telefono entidad"
+                            },
+                            {
+                                "name": "email entidad",
+                                "type": "text",
+                                "label": "email entidad"
+                            },
+                            {
+                                "name": "direccion entidad",
+                                "type": "text",
+                                "label": "direccion entidad"
+                            },
+                            {
+                                "name": "provincia entidad",
+                                "type": "text",
+                                "label": "provincia entidad"
+                            },
+                            {
+                                "name": "ciudad entidad",
+                                "type": "text",
+                                "label": "ciudad entidad"
+                            },
+                            {
+                                "name": "CP entidad",
+                                "type": "text",
+                                "label": "CP entidad"
+                            },
+                            {
+                                "name": "pais entidad",
+                                "type": "text",
+                                "label": "pais entidad"
+                            },
+                            {
+                                "name": "notas",
+                                "type": "text",
+                                "label": "notas",
+                                "multiline": true
+                            },
+                            {
+                                "name": "num cuenta",
+                                "type": "text",
+                                "label": "num cuenta"
+                            },
+                            {
+                                "name": "fecha cobro",
+                                "time": false,
+                                "type": "date",
+                                "label": "fecha cobro"
+                            },
+                            {
+                                "name": "aval",
+                                "type": "boolean",
+                                "label": "aval"
+                            },
+                            {
+                                "name": "contrato",
+                                "type": "url",
+                                "label": "contrato"
+                            },
+                            {
+                                "name": "foto doc",
+                                "type": "url",
+                                "label": "foto doc"
+                            },
+                            {
+                                "name": "recibo_banc",
+                                "type": "url",
+                                "label": "recibo_banc"
+                            },
+                            {
+                                "name": "otros",
+                                "type": "url",
+                                "label": "otros"
+                            },
+                            {
+                                "name": "id_avalista link",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_avalista link"
+                            },
+                            {
+                                "name": "deal_link",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "deal_link"
+                            },
+                            {
+                                "name": "id_empleado link",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_empleado link"
+                            },
+                            {
+                                "name": "id_empleado link_log",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_empleado link_log"
+                            },
+                            {
+                                "name": "situacion laboral",
+                                "type": "text",
+                                "label": "situacion laboral"
+                            },
+                            {
+                                "name": "ingresos",
+                                "type": "number",
+                                "label": "ingresos"
+                            },
+                            {
+                                "name": "antiguedad laboral",
+                                "type": "text",
+                                "label": "antiguedad laboral"
+                            },
+                            {
+                                "name": "doc_ingreso",
+                                "type": "url",
+                                "label": "doc_ingreso"
+                            },
+                            {
+                                "name": "canal envio",
+                                "type": "text",
+                                "label": "canal envio"
+                            },
+                            {
+                                "name": "LOPD link PANDA",
+                                "type": "url",
+                                "label": "LOPD link PANDA"
+                            },
+                            {
+                                "name": "id_inmueble link",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_inmueble link"
+                            },
+                            {
+                                "name": "RecordProp_ID",
+                                "type": "text",
+                                "label": "RecordProp_ID"
+                            },
+                            {
+                                "name": "tipo contacto",
+                                "type": "array",
+                                "label": "tipo contacto",
+                                "dynamic": true,
+                                "editable": true
+                            },
+                            {
+                                "name": "LOPD",
+                                "spec": [
+                                    {
+                                        "name": "label",
+                                        "type": "text",
+                                        "label": "Label"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "LOPD"
+                            },
+                            {
+                                "name": "nombre plantilla LOPD",
+                                "type": "array",
+                                "label": "nombre plantilla LOPD"
+                            },
+                            {
+                                "name": "LOPD UUID",
+                                "type": "text",
+                                "label": "LOPD UUID"
+                            },
+                            {
+                                "name": "LOPD STATUS select",
+                                "type": "text",
+                                "label": "LOPD STATUS select"
+                            },
+                            {
+                                "name": "LOPD STATUS original",
+                                "type": "text",
+                                "label": "LOPD STATUS original"
+                            },
+                            {
+                                "name": "fecha creado",
+                                "type": "date",
+                                "label": "fecha creado"
+                            },
+                            {
+                                "name": "fecha modificado",
+                                "type": "date",
+                                "label": "fecha modificado"
+                            },
+                            {
+                                "name": "a pagar",
+                                "type": "number",
+                                "label": "a pagar"
+                            },
+                            {
+                                "name": "fecha pago",
+                                "time": false,
+                                "type": "date",
+                                "label": "fecha pago"
+                            },
+                            {
+                                "name": "nombre avalista",
+                                "type": "array",
+                                "label": "nombre avalista"
+                            },
+                            {
+                                "name": "nombre empleado",
+                                "type": "array",
+                                "label": "nombre empleado"
+                            },
+                            {
+                                "name": "nombre empleados log",
+                                "type": "array",
+                                "label": "nombre empleados log"
+                            },
+                            {
+                                "name": "WARNING",
+                                "type": "text",
+                                "label": "WARNING"
+                            },
+                            {
+                                "name": "count_inmueble",
+                                "type": "array",
+                                "label": "count_inmueble"
+                            },
+                            {
+                                "name": "referencia catastral inmueble",
+                                "type": "array",
+                                "label": "referencia catastral inmueble"
+                            },
+                            {
+                                "name": "producto",
+                                "type": "array",
+                                "label": "producto"
+                            },
+                            {
+                                "name": "comision",
+                                "type": "number",
+                                "label": "comision"
+                            },
+                            {
+                                "name": "AGENCIA",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "AGENCIA"
+                            },
+                            {
+                                "name": "nombre agencia",
+                                "type": "array",
+                                "label": "nombre agencia"
+                            },
+                            {
+                                "name": "UUID plantilla LOPD",
+                                "type": "array",
+                                "label": "UUID plantilla LOPD"
+                            },
+                            {
+                                "name": "LOPD url",
+                                "type": "url",
+                                "label": "LOPD url"
+                            },
+                            {
+                                "name": "contrato STATUS select",
+                                "type": "array",
+                                "label": "contrato STATUS select"
+                            },
+                            {
+                                "name": "ID_deal_record (from deal_link)",
+                                "type": "array",
+                                "label": "ID_deal_record (from deal_link)"
+                            },
+                            {
+                                "name": "LLAMAR contacto",
+                                "spec": [
+                                    {
+                                        "name": "label",
+                                        "type": "text",
+                                        "label": "Label"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "LLAMAR contacto"
+                            },
+                            {
+                                "name": "id user Aircall",
+                                "type": "array",
+                                "label": "id user Aircall"
+                            },
+                            {
+                                "name": "linea origen llamada",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "linea origen llamada"
+                            },
+                            {
+                                "name": "telefono (origen llamada)",
+                                "type": "array",
+                                "label": "telefono (origen llamada)"
+                            },
+                            {
+                                "name": "ID telefono (origen llamada)",
+                                "type": "array",
+                                "label": "ID telefono (origen llamada)"
+                            },
+                            {
+                                "name": "CONTRATO agencia",
+                                "spec": [
+                                    {
+                                        "name": "label",
+                                        "type": "text",
+                                        "label": "Label"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "CONTRATO agencia"
+                            },
+                            {
+                                "name": "ENVIAR agencia",
+                                "spec": [
+                                    {
+                                        "name": "label",
+                                        "type": "text",
+                                        "label": "Label"
+                                    },
+                                    {
+                                        "name": "url",
+                                        "type": "url",
+                                        "label": "URL"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "ENVIAR agencia"
+                            },
+                            {
+                                "name": "tipo agencia",
+                                "type": "text",
+                                "label": "tipo agencia"
+                            },
+                            {
+                                "name": "informa",
+                                "type": "text",
+                                "label": "informa"
+                            },
+                            {
+                                "name": "localizacion",
+                                "type": "text",
+                                "label": "localizacion"
+                            },
+                            {
+                                "name": "entidad bancaria",
+                                "type": "text",
+                                "label": "entidad bancaria"
+                            },
+                            {
+                                "name": "id_propietario link",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_propietario link"
+                            },
+                            {
+                                "name": "nombre  propietario",
+                                "type": "array",
+                                "label": "nombre  propietario"
+                            },
+                            {
+                                "name": "PLANTILLA AGENCIA",
+                                "spec": {
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "PLANTILLA AGENCIA"
+                            },
+                            {
+                                "name": "nombre plantilla AGENCIA",
+                                "type": "array",
+                                "label": "nombre plantilla AGENCIA"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 16,
+                    "module": "builtin:Ignore",
+                    "version": 1,
+                    "metadata": {
+                        "designer": {
+                            "x": 2100,
+                            "y": 300
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "module": "airtable:ActionUpdateRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 976896
+            },
+            "mapper": {
+                "id": "{{11.id}}",
+                "base": "appuV5kGKzKdXlhoR",
+                "table": "tbl7HVrBNBY9cSXzj",
+                "record": {
+                    "fldu88RU91yNooDoV": "LLAMANDO ➙📞"
+                },
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1800,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "Advancing"
+                        },
+                        "table": {
+                            "label": "contactos"
+                        },
+                        "record": {
+                            "nested": {
+                                "fld4MKeVOsBJEMfYy": {
+                                    "mode": "chose"
+                                },
+                                "fld5NarXMuJuyBf3T": {
+                                    "mode": "chose"
+                                },
+                                "fld6HXlAcwQSzrlq5": {
+                                    "mode": "edit"
+                                },
+                                "fld85x420TZThnaw1": {
+                                    "mode": "edit"
+                                },
+                                "fldC6feJwApdX6XNU": {
+                                    "mode": "edit"
+                                },
+                                "fldDfGSRXsZggcAlq": {
+                                    "mode": "chose"
+                                },
+                                "fldGHLC1iDpuYzXx3": {
+                                    "mode": "chose"
+                                },
+                                "fldJOgQEJ6ADJeGtE": {
+                                    "mode": "chose"
+                                },
+                                "fldOKSBh7qihxKM73": {
+                                    "mode": "edit"
+                                },
+                                "fldRfgLZlkACYlqK5": {
+                                    "mode": "chose"
+                                },
+                                "fldTMbYr06YaFbKG8": {
+                                    "mode": "edit"
+                                },
+                                "fldW7hKqHmqOyBJWD": {
+                                    "mode": "edit"
+                                },
+                                "fldXmVZARXsoZ6uxo": {
+                                    "mode": "chose"
+                                },
+                                "fldZ3fPqEUgcHjmtu": {
+                                    "mode": "edit"
+                                },
+                                "fldcmzmOvCsnc4z4z": {
+                                    "mode": "chose"
+                                },
+                                "fldfD9hWiDKkwKcf7": {
+                                    "mode": "chose"
+                                },
+                                "fldfpHl6N3txI9iD6": {
+                                    "mode": "chose"
+                                },
+                                "fldhEub0h3vMBrqZH": {
+                                    "mode": "edit"
+                                },
+                                "fldqAHREJXix3uTzu": {
+                                    "mode": "chose"
+                                },
+                                "fldrQJWMaJexlgRJh": {
+                                    "mode": "chose"
+                                },
+                                "fldsgrFQKfzwz8AT4": {
+                                    "mode": "edit"
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "Advancing-Airtable "
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fld9f67VJGfsNksxo",
+                                "type": "text",
+                                "label": "id_contacto"
+                            },
+                            {
+                                "name": "fld4MKeVOsBJEMfYy",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "PLANTILLA LOPD"
+                            },
+                            {
+                                "name": "fld9pjRDwkZhflVna",
+                                "type": "text",
+                                "label": "nombre"
+                            },
+                            {
+                                "name": "fldTciwBcSDx2F5Rl",
+                                "type": "text",
+                                "label": "apellidos"
+                            },
+                            {
+                                "name": "fldeikqyfWQLSYWf5",
+                                "type": "text",
+                                "label": "nacionalidad"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldOKSBh7qihxKM73",
+                                "type": "select",
+                                "label": "tipo doc"
+                            },
+                            {
+                                "name": "fldDicT1bmEt0RWha",
+                                "type": "text",
+                                "label": "num doc"
+                            },
+                            {
+                                "name": "flduLwoOzrPjoVDXC",
+                                "type": "text",
+                                "label": "telefono"
+                            },
+                            {
+                                "name": "fld58wKOsne6eCGpI",
+                                "type": "text",
+                                "label": "email"
+                            },
+                            {
+                                "name": "fldsqBrAlIS6dqPoK",
+                                "type": "text",
+                                "label": "direccion"
+                            },
+                            {
+                                "name": "fldBbsaI4DTtPOoz3",
+                                "type": "text",
+                                "label": "CP"
+                            },
+                            {
+                                "name": "fldIsmkcqJvdvaPqk",
+                                "type": "text",
+                                "label": "ciudad"
+                            },
+                            {
+                                "name": "fldEwXZiQ0lRhMUXF",
+                                "type": "text",
+                                "label": "provincia"
+                            },
+                            {
+                                "name": "fldW9MFbk5wuDITV2",
+                                "type": "text",
+                                "label": "pais"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fld85x420TZThnaw1",
+                                "type": "select",
+                                "label": "razon social"
+                            },
+                            {
+                                "name": "fldEnbk0UuEDI2LWS",
+                                "type": "text",
+                                "label": "nombre entidad"
+                            },
+                            {
+                                "name": "fldflVFJCuXriwZG4",
+                                "type": "text",
+                                "label": "cif entidad"
+                            },
+                            {
+                                "name": "fldBcaWABiYUSjKZf",
+                                "type": "text",
+                                "label": "telefono entidad"
+                            },
+                            {
+                                "name": "fld3EVLZtNlKZFPUb",
+                                "type": "text",
+                                "label": "email entidad"
+                            },
+                            {
+                                "name": "fldL3WgxWXmFwHj7R",
+                                "type": "text",
+                                "label": "direccion entidad"
+                            },
+                            {
+                                "name": "fldo6nxCDVaHrmqdS",
+                                "type": "text",
+                                "label": "provincia entidad"
+                            },
+                            {
+                                "name": "fldi85fZqo5Bmj9xk",
+                                "type": "text",
+                                "label": "ciudad entidad"
+                            },
+                            {
+                                "name": "fldmFWwTzYYe9UYDl",
+                                "type": "text",
+                                "label": "CP entidad"
+                            },
+                            {
+                                "name": "fldgH8HMCRZm7TzHN",
+                                "type": "text",
+                                "label": "pais entidad"
+                            },
+                            {
+                                "name": "fldTk9zKfiTlsM1t1",
+                                "type": "text",
+                                "label": "notas"
+                            },
+                            {
+                                "name": "fldUY0qcYZGBQjuk1",
+                                "type": "text",
+                                "label": "num cuenta"
+                            },
+                            {
+                                "name": "fld9hrTobT35jmGBS",
+                                "time": false,
+                                "type": "date",
+                                "label": "fecha cobro"
+                            },
+                            {
+                                "name": "fldGHLC1iDpuYzXx3",
+                                "type": "boolean",
+                                "label": "aval"
+                            },
+                            {
+                                "name": "fldivMY3MA8Hnwq0Q",
+                                "type": "url",
+                                "label": "contrato"
+                            },
+                            {
+                                "name": "fldKsUri9qPSMBXUg",
+                                "type": "url",
+                                "label": "foto doc"
+                            },
+                            {
+                                "name": "fldmfrmdx7nZ7Z0kQ",
+                                "type": "url",
+                                "label": "recibo_banc"
+                            },
+                            {
+                                "name": "fldfSn4IxndLHZ6UF",
+                                "type": "url",
+                                "label": "otros"
+                            },
+                            {
+                                "name": "fldcmzmOvCsnc4z4z",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_avalista link"
+                            },
+                            {
+                                "name": "fldfpHl6N3txI9iD6",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "deal_link"
+                            },
+                            {
+                                "name": "fldJOgQEJ6ADJeGtE",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_empleado link"
+                            },
+                            {
+                                "name": "fldrQJWMaJexlgRJh",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_empleado link_log"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldsgrFQKfzwz8AT4",
+                                "type": "select",
+                                "label": "situacion laboral"
+                            },
+                            {
+                                "name": "fldDPy51zFYCKDCzF",
+                                "type": "number",
+                                "label": "ingresos"
+                            },
+                            {
+                                "name": "fldxGFtAEFXa7UH47",
+                                "type": "text",
+                                "label": "antiguedad laboral"
+                            },
+                            {
+                                "name": "fldQpm0L4anqtYqqX",
+                                "type": "url",
+                                "label": "doc_ingreso"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldC6feJwApdX6XNU",
+                                "type": "select",
+                                "label": "canal envio"
+                            },
+                            {
+                                "name": "fldELHnSX1uQO0m7Z",
+                                "type": "url",
+                                "label": "LOPD link PANDA"
+                            },
+                            {
+                                "name": "fldfD9hWiDKkwKcf7",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_inmueble link"
+                            },
+                            {
+                                "name": "fldDfGSRXsZggcAlq",
+                                "spec": {
+                                    "mode": "edit",
+                                    "name": "value",
+                                    "type": "select",
+                                    "label": "Value",
+                                    "dynamic": true,
+                                    "options": [
+                                        {
+                                            "label": "propietario",
+                                            "value": "propietario"
+                                        },
+                                        {
+                                            "label": "inquilino",
+                                            "value": "inquilino"
+                                        },
+                                        {
+                                            "label": "avalista",
+                                            "value": "avalista"
+                                        },
+                                        {
+                                            "label": "agencia",
+                                            "value": "agencia"
+                                        }
+                                    ],
+                                    "validate": false
+                                },
+                                "type": "array",
+                                "label": "tipo contacto"
+                            },
+                            {
+                                "name": "fldyTtmEdBCN9rpBW",
+                                "type": "text",
+                                "label": "LOPD UUID"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldTMbYr06YaFbKG8",
+                                "type": "select",
+                                "label": "LOPD STATUS select"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldW7hKqHmqOyBJWD",
+                                "type": "select",
+                                "label": "LOPD STATUS original"
+                            },
+                            {
+                                "name": "fldV4owlOltXYM7IP",
+                                "type": "number",
+                                "label": "a pagar"
+                            },
+                            {
+                                "name": "fldg84aExN4jdKEbn",
+                                "time": false,
+                                "type": "date",
+                                "label": "fecha pago"
+                            },
+                            {
+                                "name": "fldu88RU91yNooDoV",
+                                "type": "text",
+                                "label": "WARNING"
+                            },
+                            {
+                                "name": "fldEApZbVyx7cn8YF",
+                                "type": "number",
+                                "label": "comision"
+                            },
+                            {
+                                "name": "fldRfgLZlkACYlqK5",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "AGENCIA"
+                            },
+                            {
+                                "name": "fldZJemCcmKkA7eg5",
+                                "type": "url",
+                                "label": "LOPD url"
+                            },
+                            {
+                                "name": "fld5NarXMuJuyBf3T",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "linea origen llamada"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldhEub0h3vMBrqZH",
+                                "type": "select",
+                                "label": "tipo agencia"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldZ3fPqEUgcHjmtu",
+                                "type": "select",
+                                "label": "informa"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fld6HXlAcwQSzrlq5",
+                                "type": "select",
+                                "label": "localizacion"
+                            },
+                            {
+                                "name": "fldUBY6Os1eYkme20",
+                                "type": "text",
+                                "label": "entidad bancaria"
+                            },
+                            {
+                                "name": "fldqAHREJXix3uTzu",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "id_propietario link"
+                            },
+                            {
+                                "name": "fldXmVZARXsoZ6uxo",
+                                "spec": {
+                                    "name": "value",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "PLANTILLA AGENCIA"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "id_contacto",
+                        "type": "text",
+                        "label": "id_contacto"
+                    },
+                    {
+                        "name": "PLANTILLA LOPD",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "PLANTILLA LOPD"
+                    },
+                    {
+                        "name": "nombre",
+                        "type": "text",
+                        "label": "nombre"
+                    },
+                    {
+                        "name": "apellidos",
+                        "type": "text",
+                        "label": "apellidos"
+                    },
+                    {
+                        "name": "nacionalidad",
+                        "type": "text",
+                        "label": "nacionalidad"
+                    },
+                    {
+                        "name": "tipo doc",
+                        "type": "text",
+                        "label": "tipo doc"
+                    },
+                    {
+                        "name": "num doc",
+                        "type": "text",
+                        "label": "num doc"
+                    },
+                    {
+                        "name": "telefono",
+                        "type": "text",
+                        "label": "telefono"
+                    },
+                    {
+                        "name": "email",
+                        "type": "text",
+                        "label": "email"
+                    },
+                    {
+                        "name": "direccion",
+                        "type": "text",
+                        "label": "direccion"
+                    },
+                    {
+                        "name": "CP",
+                        "type": "text",
+                        "label": "CP"
+                    },
+                    {
+                        "name": "ciudad",
+                        "type": "text",
+                        "label": "ciudad"
+                    },
+                    {
+                        "name": "provincia",
+                        "type": "text",
+                        "label": "provincia"
+                    },
+                    {
+                        "name": "pais",
+                        "type": "text",
+                        "label": "pais"
+                    },
+                    {
+                        "name": "razon social",
+                        "type": "text",
+                        "label": "razon social"
+                    },
+                    {
+                        "name": "nombre entidad",
+                        "type": "text",
+                        "label": "nombre entidad"
+                    },
+                    {
+                        "name": "cif entidad",
+                        "type": "text",
+                        "label": "cif entidad"
+                    },
+                    {
+                        "name": "telefono entidad",
+                        "type": "text",
+                        "label": "telefono entidad"
+                    },
+                    {
+                        "name": "email entidad",
+                        "type": "text",
+                        "label": "email entidad"
+                    },
+                    {
+                        "name": "direccion entidad",
+                        "type": "text",
+                        "label": "direccion entidad"
+                    },
+                    {
+                        "name": "provincia entidad",
+                        "type": "text",
+                        "label": "provincia entidad"
+                    },
+                    {
+                        "name": "ciudad entidad",
+                        "type": "text",
+                        "label": "ciudad entidad"
+                    },
+                    {
+                        "name": "CP entidad",
+                        "type": "text",
+                        "label": "CP entidad"
+                    },
+                    {
+                        "name": "pais entidad",
+                        "type": "text",
+                        "label": "pais entidad"
+                    },
+                    {
+                        "name": "notas",
+                        "type": "text",
+                        "label": "notas",
+                        "multiline": true
+                    },
+                    {
+                        "name": "num cuenta",
+                        "type": "text",
+                        "label": "num cuenta"
+                    },
+                    {
+                        "name": "fecha cobro",
+                        "time": false,
+                        "type": "date",
+                        "label": "fecha cobro"
+                    },
+                    {
+                        "name": "aval",
+                        "type": "boolean",
+                        "label": "aval"
+                    },
+                    {
+                        "name": "contrato",
+                        "type": "url",
+                        "label": "contrato"
+                    },
+                    {
+                        "name": "foto doc",
+                        "type": "url",
+                        "label": "foto doc"
+                    },
+                    {
+                        "name": "recibo_banc",
+                        "type": "url",
+                        "label": "recibo_banc"
+                    },
+                    {
+                        "name": "otros",
+                        "type": "url",
+                        "label": "otros"
+                    },
+                    {
+                        "name": "id_avalista link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_avalista link"
+                    },
+                    {
+                        "name": "deal_link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "deal_link"
+                    },
+                    {
+                        "name": "id_empleado link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_empleado link"
+                    },
+                    {
+                        "name": "id_empleado link_log",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_empleado link_log"
+                    },
+                    {
+                        "name": "situacion laboral",
+                        "type": "text",
+                        "label": "situacion laboral"
+                    },
+                    {
+                        "name": "ingresos",
+                        "type": "number",
+                        "label": "ingresos"
+                    },
+                    {
+                        "name": "antiguedad laboral",
+                        "type": "text",
+                        "label": "antiguedad laboral"
+                    },
+                    {
+                        "name": "doc_ingreso",
+                        "type": "url",
+                        "label": "doc_ingreso"
+                    },
+                    {
+                        "name": "canal envio",
+                        "type": "text",
+                        "label": "canal envio"
+                    },
+                    {
+                        "name": "LOPD link PANDA",
+                        "type": "url",
+                        "label": "LOPD link PANDA"
+                    },
+                    {
+                        "name": "id_inmueble link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_inmueble link"
+                    },
+                    {
+                        "name": "RecordProp_ID",
+                        "type": "text",
+                        "label": "RecordProp_ID"
+                    },
+                    {
+                        "name": "tipo contacto",
+                        "type": "array",
+                        "label": "tipo contacto",
+                        "dynamic": true,
+                        "editable": true
+                    },
+                    {
+                        "name": "LOPD",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "LOPD"
+                    },
+                    {
+                        "name": "nombre plantilla LOPD",
+                        "type": "array",
+                        "label": "nombre plantilla LOPD"
+                    },
+                    {
+                        "name": "LOPD UUID",
+                        "type": "text",
+                        "label": "LOPD UUID"
+                    },
+                    {
+                        "name": "LOPD STATUS select",
+                        "type": "text",
+                        "label": "LOPD STATUS select"
+                    },
+                    {
+                        "name": "LOPD STATUS original",
+                        "type": "text",
+                        "label": "LOPD STATUS original"
+                    },
+                    {
+                        "name": "fecha creado",
+                        "type": "date",
+                        "label": "fecha creado"
+                    },
+                    {
+                        "name": "fecha modificado",
+                        "type": "date",
+                        "label": "fecha modificado"
+                    },
+                    {
+                        "name": "a pagar",
+                        "type": "number",
+                        "label": "a pagar"
+                    },
+                    {
+                        "name": "fecha pago",
+                        "time": false,
+                        "type": "date",
+                        "label": "fecha pago"
+                    },
+                    {
+                        "name": "nombre avalista",
+                        "type": "array",
+                        "label": "nombre avalista"
+                    },
+                    {
+                        "name": "nombre empleado",
+                        "type": "array",
+                        "label": "nombre empleado"
+                    },
+                    {
+                        "name": "nombre empleados log",
+                        "type": "array",
+                        "label": "nombre empleados log"
+                    },
+                    {
+                        "name": "WARNING",
+                        "type": "text",
+                        "label": "WARNING"
+                    },
+                    {
+                        "name": "count_inmueble",
+                        "type": "array",
+                        "label": "count_inmueble"
+                    },
+                    {
+                        "name": "referencia catastral inmueble",
+                        "type": "array",
+                        "label": "referencia catastral inmueble"
+                    },
+                    {
+                        "name": "producto",
+                        "type": "array",
+                        "label": "producto"
+                    },
+                    {
+                        "name": "comision",
+                        "type": "number",
+                        "label": "comision"
+                    },
+                    {
+                        "name": "AGENCIA",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "AGENCIA"
+                    },
+                    {
+                        "name": "nombre agencia",
+                        "type": "array",
+                        "label": "nombre agencia"
+                    },
+                    {
+                        "name": "UUID plantilla LOPD",
+                        "type": "array",
+                        "label": "UUID plantilla LOPD"
+                    },
+                    {
+                        "name": "LOPD url",
+                        "type": "url",
+                        "label": "LOPD url"
+                    },
+                    {
+                        "name": "contrato STATUS select",
+                        "type": "array",
+                        "label": "contrato STATUS select"
+                    },
+                    {
+                        "name": "ID_deal_record (from deal_link)",
+                        "type": "array",
+                        "label": "ID_deal_record (from deal_link)"
+                    },
+                    {
+                        "name": "LLAMAR contacto",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "LLAMAR contacto"
+                    },
+                    {
+                        "name": "id user Aircall",
+                        "type": "array",
+                        "label": "id user Aircall"
+                    },
+                    {
+                        "name": "linea origen llamada",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "linea origen llamada"
+                    },
+                    {
+                        "name": "telefono (origen llamada)",
+                        "type": "array",
+                        "label": "telefono (origen llamada)"
+                    },
+                    {
+                        "name": "ID telefono (origen llamada)",
+                        "type": "array",
+                        "label": "ID telefono (origen llamada)"
+                    },
+                    {
+                        "name": "CONTRATO agencia",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "CONTRATO agencia"
+                    },
+                    {
+                        "name": "ENVIAR agencia",
+                        "spec": [
+                            {
+                                "name": "label",
+                                "type": "text",
+                                "label": "Label"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "ENVIAR agencia"
+                    },
+                    {
+                        "name": "tipo agencia",
+                        "type": "text",
+                        "label": "tipo agencia"
+                    },
+                    {
+                        "name": "informa",
+                        "type": "text",
+                        "label": "informa"
+                    },
+                    {
+                        "name": "localizacion",
+                        "type": "text",
+                        "label": "localizacion"
+                    },
+                    {
+                        "name": "entidad bancaria",
+                        "type": "text",
+                        "label": "entidad bancaria"
+                    },
+                    {
+                        "name": "id_propietario link",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "id_propietario link"
+                    },
+                    {
+                        "name": "nombre  propietario",
+                        "type": "array",
+                        "label": "nombre  propietario"
+                    },
+                    {
+                        "name": "PLANTILLA AGENCIA",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "PLANTILLA AGENCIA"
+                    },
+                    {
+                        "name": "nombre plantilla AGENCIA",
+                        "type": "array",
+                        "label": "nombre plantilla AGENCIA"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com"
+    }
+}
