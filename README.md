@@ -1,6 +1,8 @@
 # AIRCALL
 Automatizar Aircall
 
+https://nocodetips.blogspot.com/2023/04/automatizacion-de-llamadas-telefonicas.html
+
 Esta automatización permite realizar llamadas telefónicas a través de la aplicación Aircall
 
 descarga el archivo .JSON
